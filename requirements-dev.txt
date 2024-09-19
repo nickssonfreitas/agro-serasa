@@ -1,0 +1,9 @@
+gdal
+rasterio
+shapely
+fiona
+eo-learn
+pandas
+numpy
+matplotlib
+seaborn
