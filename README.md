@@ -90,6 +90,21 @@ Create a `.env` file in the project root with the following content:
 PATH_TO_PROJECT=<YOUR_PATH_TO_PROJECT>
 ```
 
+### 7. Clone the repository eo-learn to get data in other directory
+The eoc-learn is a repository very big, then, I recomend you pull only the last commit using HTTPs
+```bash
+- git clone --depth 1 https://github.com/sentinel-hub/eo-learn.git # get most recent commit (this repositoty is very big)
+```
+If you failed, then you can increase the HTTP buffet using the command below.
+```bash
+- git config --global http.postBuffer 524288000 #increase buffet size HTTP to download
+```
+
+If you failed, then you can try uses git protocol.
+```bash
+- git clone git://github.com/sentinel-hub/eo-learn.git
+```
+
 ## Project Structure
 ```plaintext
 ├── README.md          <- Project documentation and setup guide
