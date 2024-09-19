@@ -1,9 +1,15 @@
-gdal
+pandas              # Estruturas de dados e análise de dados fácil
+matplotlib          # Visualização de dados em gráficos
+seaborn             # Visualização estatística baseada no Matplotlib
+mplleaflet          # Visualização de mapas interativos
+plotly              # Biblioteca para criação de gráficos interativos
+ipywidgets          # Biblioteca para widgets interativos no Jupyter Notebook
+pyyaml              # Biblioteca Python para processamento de arquivos YAML
+dash                # Framework para construção de aplicações web analíticas interativas
+numpy               # Manipulação eficiente de arrays e cálculos numéricos
+scipy               # Biblioteca para matemática, ciência e engenharia
 rasterio
 shapely
 fiona
 eo-learn
-pandas
-numpy
-matplotlib
-seaborn
+jupyterlab
