@@ -1,0 +1,8 @@
+├── src                <- Source code for the project
+│   ├── api            <- API connections
+│   ├── core           <- Core functionalities
+│   ├── db             <- Database connections
+│   ├── model          <- Machine learning models
+│   ├── processing     <- Data preparation algorithms
+│   ├── visualization  <- Visualization and dashboard creation
+│   ├── __init__.py    <- Makes `src` a Python module

@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Report 2024-09-22 11:30:12</title>
+
+    <style>
+        pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.hll { background-color: #ffffcc }
+.c { color: #3D7B7B; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #008000; font-weight: bold } /* Keyword */
+.o { color: #666666 } /* Operator */
+.ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.cp { color: #9C6500 } /* Comment.Preproc */
+.cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.gr { color: #E40000 } /* Generic.Error */
+.gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.gi { color: #008400 } /* Generic.Inserted */
+.go { color: #717171 } /* Generic.Output */
+.gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.gs { font-weight: bold } /* Generic.Strong */
+.gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.gt { color: #0044DD } /* Generic.Traceback */
+.kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.kt { color: #B00040 } /* Keyword.Type */
+.m { color: #666666 } /* Literal.Number */
+.s { color: #BA2121 } /* Literal.String */
+.na { color: #687822 } /* Name.Attribute */
+.nb { color: #008000 } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #717171; font-weight: bold } /* Name.Entity */
+.ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #767600 } /* Name.Label */
+.nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.nt { color: #008000; font-weight: bold } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mb { color: #666666 } /* Literal.Number.Bin */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sa { color: #BA2121 } /* Literal.String.Affix */
+.sb { color: #BA2121 } /* Literal.String.Backtick */
+.sc { color: #BA2121 } /* Literal.String.Char */
+.dl { color: #BA2121 } /* Literal.String.Delimiter */
+.sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #BA2121 } /* Literal.String.Double */
+.se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.sh { color: #BA2121 } /* Literal.String.Heredoc */
+.si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #A45A77 } /* Literal.String.Regex */
+.s1 { color: #BA2121 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.fm { color: #0000FF } /* Name.Function.Magic */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.vm { color: #19177C } /* Name.Variable.Magic */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+
+        h1 {
+            text-align: center;
+        }
+
+        h2, h3, h4 {
+            margin-block-end: 0px;
+        }
+
+        p {
+            overflow: auto;
+        }
+
+        .indent {
+            margin-left: 20px;
+            overflow: auto;
+        }
+
+        .margined-div {
+            margin-block-start: 1em
+        }
+
+        .exec-status {
+            color: black;
+            padding: 10px 10px;
+            margin: 1px;
+            border-radius: 4px;
+            float: left;
+        }
+
+        .exec-finished {
+            background-color: green;
+        }
+
+        .exec-failed {
+            background-color: red;
+        }
+
+        .collapsible-content {
+          padding: 0 18px;
+          display: none;
+          overflow: hidden;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1> EOExecution Report </h1>
+
+    <h2> EOWorkflow dependency graph </h2>
+
+    <div class="indent">
+        <img src="data:image/png;base64,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" />
+    </div>
+
+    <h2> Execution status </h2>
+
+    <div class="indent">
+
+        <ul>
+            <li>
+                Start time: 2024-09-22 11:30:12
+            </li>
+            <li>
+                End time: 2024-09-22 11:30:12
+            </li>
+            <li>
+                Duration: 0:00:00.124989
+            </li>
+            <li>
+                Number of finished executions: 0
+            </li>
+            <li>
+                Number of failed executions: 5
+            </li>
+            <li>
+                Number of workers: 3
+            </li>
+        </ul>
+
+        <p>
+            
+                <a class="exec-status exec-failed"
+                   title="Execution 1"
+                   href="#execution1"
+                ></a>
+            
+                <a class="exec-status exec-failed"
+                   title="Execution 2"
+                   href="#execution2"
+                ></a>
+            
+                <a class="exec-status exec-failed"
+                   title="Execution 3"
+                   href="#execution3"
+                ></a>
+            
+                <a class="exec-status exec-failed"
+                   title="Execution 4"
+                   href="#execution4"
+                ></a>
+            
+                <a class="exec-status exec-failed"
+                   title="Execution 5"
+                   href="#execution5"
+                ></a>
+            
+        </p>
+
+        <div class="indent">
+            <a class="exec-status exec-finished"></a> &nbsp;... Execution successfully finished
+        </div>
+        <div class="indent">
+            <a class="exec-status exec-failed"></a> &nbsp;... Execution failed because of an error
+        </div>
+
+        
+        <h3> Summary of exceptions </h3>
+
+        <div class="indent">
+            <ul>
+            
+                <li>
+                    <b>Load EOPatch (LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d):</b>
+                    <ul>
+                    
+                        <li>
+                            5 times: <b>ResourceNotFound</b> raised from line 317 in /home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py.
+                            <br>
+                            Example message: <pre>resource '/TutorialEOPatch' not found</pre>
+                            <br>
+                            <button class="collapsible">Failed executions</button>
+                            <div class="collapsible-content">
+                                <ul>
+                                    
+                                    <li><a href="#execution0">1</a></li>
+                                    
+                                    <li><a href="#execution1">2</a></li>
+                                    
+                                    <li><a href="#execution2">3</a></li>
+                                    
+                                    <li><a href="#execution3">4</a></li>
+                                    
+                                    <li><a href="#execution4">5</a></li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            </ul>
+        </div>
+        
+    </div>
+
+    <h2> EONodes </h2>
+
+    <div class="indent">
+
+        
+            <h3 id="LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d"> Load EOPatch (LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d) </h3>
+
+            <div class="indent">
+                <b>Execution duration:</b> Between 0.000548 and 0.004891 seconds, usually 0.002539 ± 0.001885 seconds <br>
+
+                <h4> Initialization parameters </h4>
+                
+                    <ul>
+                        
+                            <li> <pre> path = '/home/nicksson/Git/eo-learn/example_data' </pre> </li>
+                        
+                    </ul>
+                
+            </div>
+        
+            <h3 id="AddFeatureTask-9cdcd48d78ee11ef833c-d9386dcb947a"> Add a new feature (AddFeatureTask-9cdcd48d78ee11ef833c-d9386dcb947a) </h3>
+
+            <div class="indent">
+                <b>Execution duration:</b> unknown <br>
+
+                <h4> Initialization parameters </h4>
+                
+                    <ul>
+                        
+                            <li> <pre> feature = (&lt;FeatureType.LABEL: 'label'&gt;, 'NEW_LABEL') </pre> </li>
+                        
+                    </ul>
+                
+            </div>
+        
+            <h3 id="SaveTask-9cdcd6f778ee11ef8922-90a64419d7fa"> Save EOPatch (SaveTask-9cdcd6f778ee11ef8922-90a64419d7fa) </h3>
+
+            <div class="indent">
+                <b>Execution duration:</b> unknown <br>
+
+                <h4> Initialization parameters </h4>
+                
+                    <ul>
+                        
+                            <li> <pre> path = './outputs' </pre> </li>
+                        
+                            <li> <pre> overwrite_permission = &lt;OverwritePermission.OVERWRITE_FEATURES: 'OVERWRITE_FEATURES'&gt; </pre> </li>
+                        
+                    </ul>
+                
+            </div>
+        
+        </div>
+
+    </div>
+
+    <h2> Execution details </h2>
+
+    <div class="indent">
+        
+            <h3 id="execution1"> Execution 1 </h3>
+
+            <div class="indent">
+                Statistics<br/>
+                <ul>
+                    <li>Start time: 2024-09-22 11:30:12</li>
+                    <li>End time: 2024-09-22 11:30:12</li>
+                    <li>Duration: 0:00:00.005240</li>
+                </ul>
+                
+                    
+                    Error in task <a href="#LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d"> Load EOPatch (LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d)</a>:<br/>
+                    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">317</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="n">names</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">fsencode</span><span class="p">(</span><span class="n">sys_path</span><span class="p">))</span>
+<span class="w">            </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="gr">FileNotFoundError</span>: <span class="n">[Errno 2] No such file or directory: b&#39;/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch&#39;</span>
+
+<span class="gt">During handling of the above exception, another exception occurred:</span>
+
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py&quot;</span>, line <span class="m">271</span>, in <span class="n">_execute_task</span>
+<span class="w">    </span><span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="o">*</span><span class="n">task_args</span><span class="p">,</span> <span class="o">**</span><span class="n">task_kwargs</span><span class="p">)</span>
+<span class="w">           </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py&quot;</span>, line <span class="m">224</span>, in <span class="n">execute</span>
+<span class="w">    </span><span class="n">loaded_patch</span> <span class="o">=</span> <span class="n">EOPatch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+<span class="w">                   </span><span class="pm">^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py&quot;</span>, line <span class="m">682</span>, in <span class="n">load</span>
+<span class="w">    </span><span class="n">bbox</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">,</span> <span class="n">features_dict</span> <span class="o">=</span> <span class="n">load_eopatch_content</span><span class="p">(</span>
+<span class="w">                                      </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py&quot;</span>, line <span class="m">308</span>, in <span class="n">load_eopatch_content</span>
+<span class="w">    </span><span class="n">file_information</span> <span class="o">=</span> <span class="n">get_filesystem_data_info</span><span class="p">(</span><span class="n">filesystem</span><span class="p">,</span> <span class="n">patch_location</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
+<span class="w">                       </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py&quot;</span>, line <span class="m">416</span>, in <span class="n">get_filesystem_data_info</span>
+<span class="w">    </span><span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">filesystem</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">patch_location</span><span class="p">):</span>
+<span class="w">                </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">316</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="k">with</span> <span class="n">convert_os_errors</span><span class="p">(</span><span class="s2">&quot;listdir&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py&quot;</span>, line <span class="m">89</span>, in <span class="n">__exit__</span>
+<span class="w">    </span><span class="n">reraise</span><span class="p">(</span><span class="n">fserror</span><span class="p">,</span> <span class="n">fserror</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="n">exc_value</span><span class="p">),</span> <span class="n">traceback</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py&quot;</span>, line <span class="m">718</span>, in <span class="n">reraise</span>
+<span class="w">    </span><span class="k">raise</span> <span class="n">value</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">tb</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">317</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="n">names</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">fsencode</span><span class="p">(</span><span class="n">sys_path</span><span class="p">))</span>
+<span class="w">            </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="gr">fs.errors.ResourceNotFound</span>: <span class="n">resource &#39;/TutorialEOPatch&#39; not found</span>
+</pre></div></td></tr></table></div>
+
+                
+
+                
+                    <button class="collapsible">Logs</button>
+                    <div class="collapsible-content">
+                      <pre>2024-09-22 11:30:12,133 eolearn.core.eoworkflow DEBUG    Computing LoadTask(*[], **{'eopatch_folder': 'TutorialEOPatch'})
+2024-09-22 11:30:12,138 eolearn.core.eoworkflow ERROR    Task 'Load EOPatch' with id LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d failed with stack trace:
+Traceback (most recent call last):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir
+    names = os.listdir(fsencode(sys_path))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: b'/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py", line 271, in _execute_task
+    return task.execute(*task_args, **task_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py", line 224, in execute
+    loaded_patch = EOPatch.load(
+                   ^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py", line 682, in load
+    bbox, timestamps, features_dict = load_eopatch_content(
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 308, in load_eopatch_content
+    file_information = get_filesystem_data_info(filesystem, patch_location, features)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 416, in get_filesystem_data_info
+    for path in filesystem.listdir(patch_location):
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 316, in listdir
+    with convert_os_errors("listdir", path, directory=True):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py", line 89, in __exit__
+    reraise(fserror, fserror(self._path, exc=exc_value), traceback)
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py", line 718, in reraise
+    raise value.with_traceback(tb)
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir
+    names = os.listdir(fsencode(sys_path))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+fs.errors.ResourceNotFound: resource '/TutorialEOPatch' not found
+
+2024-09-22 11:30:12,138 eolearn.core.eoworkflow DEBUG    EOWorkflow ended with results WorkflowResults(outputs={}, start_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 133063), end_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 138303), stats={'LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d': NodeStats(node_uid='LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d', node_name='Load EOPatch', start_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 133287), end_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 138178), exception_info=ExceptionInfo(exception=ResourceNotFound("resource '/TutorialEOPatch' not found"), traceback='Traceback (most recent call last):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir\n    names = os.listdir(fsencode(sys_path))\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: b\'/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch\'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py", line 271, in _execute_task\n    return task.execute(*task_args, **task_kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py", line 224, in execute\n    loaded_patch = EOPatch.load(\n                   ^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py", line 682, in load\n    bbox, timestamps, features_dict = load_eopatch_content(\n                                      ^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 308, in load_eopatch_content\n    file_information = get_filesystem_data_info(filesystem, patch_location, features)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 416, in get_filesystem_data_info\n    for path in filesystem.listdir(patch_location):\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 316, in listdir\n    with convert_os_errors("listdir", path, directory=True):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py", line 89, in __exit__\n    reraise(fserror, fserror(self._path, exc=exc_value), traceback)\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py", line 718, in reraise\n    raise value.with_traceback(tb)\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir\n    names = os.listdir(fsencode(sys_path))\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nfs.errors.ResourceNotFound: resource \'/TutorialEOPatch\' not found\n', origin='line 317 in /home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py.'))}, error_node_uid='LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d')
+2024-09-22 11:30:12,138 eolearn.core.eoworkflow DEBUG    EOWorkflow execution failed!
+</pre>
+                    </div>
+                
+            </div>
+        
+            <h3 id="execution2"> Execution 2 </h3>
+
+            <div class="indent">
+                Statistics<br/>
+                <ul>
+                    <li>Start time: 2024-09-22 11:30:12</li>
+                    <li>End time: 2024-09-22 11:30:12</li>
+                    <li>Duration: 0:00:00.004918</li>
+                </ul>
+                
+                    
+                    Error in task <a href="#LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d"> Load EOPatch (LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d)</a>:<br/>
+                    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">317</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="n">names</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">fsencode</span><span class="p">(</span><span class="n">sys_path</span><span class="p">))</span>
+<span class="w">            </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="gr">FileNotFoundError</span>: <span class="n">[Errno 2] No such file or directory: b&#39;/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch&#39;</span>
+
+<span class="gt">During handling of the above exception, another exception occurred:</span>
+
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py&quot;</span>, line <span class="m">271</span>, in <span class="n">_execute_task</span>
+<span class="w">    </span><span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="o">*</span><span class="n">task_args</span><span class="p">,</span> <span class="o">**</span><span class="n">task_kwargs</span><span class="p">)</span>
+<span class="w">           </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py&quot;</span>, line <span class="m">224</span>, in <span class="n">execute</span>
+<span class="w">    </span><span class="n">loaded_patch</span> <span class="o">=</span> <span class="n">EOPatch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+<span class="w">                   </span><span class="pm">^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py&quot;</span>, line <span class="m">682</span>, in <span class="n">load</span>
+<span class="w">    </span><span class="n">bbox</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">,</span> <span class="n">features_dict</span> <span class="o">=</span> <span class="n">load_eopatch_content</span><span class="p">(</span>
+<span class="w">                                      </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py&quot;</span>, line <span class="m">308</span>, in <span class="n">load_eopatch_content</span>
+<span class="w">    </span><span class="n">file_information</span> <span class="o">=</span> <span class="n">get_filesystem_data_info</span><span class="p">(</span><span class="n">filesystem</span><span class="p">,</span> <span class="n">patch_location</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
+<span class="w">                       </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py&quot;</span>, line <span class="m">416</span>, in <span class="n">get_filesystem_data_info</span>
+<span class="w">    </span><span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">filesystem</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">patch_location</span><span class="p">):</span>
+<span class="w">                </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">316</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="k">with</span> <span class="n">convert_os_errors</span><span class="p">(</span><span class="s2">&quot;listdir&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py&quot;</span>, line <span class="m">89</span>, in <span class="n">__exit__</span>
+<span class="w">    </span><span class="n">reraise</span><span class="p">(</span><span class="n">fserror</span><span class="p">,</span> <span class="n">fserror</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="n">exc_value</span><span class="p">),</span> <span class="n">traceback</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py&quot;</span>, line <span class="m">718</span>, in <span class="n">reraise</span>
+<span class="w">    </span><span class="k">raise</span> <span class="n">value</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">tb</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">317</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="n">names</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">fsencode</span><span class="p">(</span><span class="n">sys_path</span><span class="p">))</span>
+<span class="w">            </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="gr">fs.errors.ResourceNotFound</span>: <span class="n">resource &#39;/TutorialEOPatch&#39; not found</span>
+</pre></div></td></tr></table></div>
+
+                
+
+                
+                    <button class="collapsible">Logs</button>
+                    <div class="collapsible-content">
+                      <pre>2024-09-22 11:30:12,133 eolearn.core.eoworkflow DEBUG    Computing LoadTask(*[], **{'eopatch_folder': 'TutorialEOPatch'})
+2024-09-22 11:30:12,138 eolearn.core.eoworkflow ERROR    Task 'Load EOPatch' with id LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d failed with stack trace:
+Traceback (most recent call last):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir
+    names = os.listdir(fsencode(sys_path))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: b'/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py", line 271, in _execute_task
+    return task.execute(*task_args, **task_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py", line 224, in execute
+    loaded_patch = EOPatch.load(
+                   ^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py", line 682, in load
+    bbox, timestamps, features_dict = load_eopatch_content(
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 308, in load_eopatch_content
+    file_information = get_filesystem_data_info(filesystem, patch_location, features)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 416, in get_filesystem_data_info
+    for path in filesystem.listdir(patch_location):
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 316, in listdir
+    with convert_os_errors("listdir", path, directory=True):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py", line 89, in __exit__
+    reraise(fserror, fserror(self._path, exc=exc_value), traceback)
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py", line 718, in reraise
+    raise value.with_traceback(tb)
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir
+    names = os.listdir(fsencode(sys_path))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+fs.errors.ResourceNotFound: resource '/TutorialEOPatch' not found
+
+2024-09-22 11:30:12,138 eolearn.core.eoworkflow DEBUG    EOWorkflow ended with results WorkflowResults(outputs={}, start_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 133387), end_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 138305), stats={'LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d': NodeStats(node_uid='LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d', node_name='Load EOPatch', start_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 133596), end_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 138214), exception_info=ExceptionInfo(exception=ResourceNotFound("resource '/TutorialEOPatch' not found"), traceback='Traceback (most recent call last):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir\n    names = os.listdir(fsencode(sys_path))\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: b\'/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch\'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py", line 271, in _execute_task\n    return task.execute(*task_args, **task_kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py", line 224, in execute\n    loaded_patch = EOPatch.load(\n                   ^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py", line 682, in load\n    bbox, timestamps, features_dict = load_eopatch_content(\n                                      ^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 308, in load_eopatch_content\n    file_information = get_filesystem_data_info(filesystem, patch_location, features)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 416, in get_filesystem_data_info\n    for path in filesystem.listdir(patch_location):\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 316, in listdir\n    with convert_os_errors("listdir", path, directory=True):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py", line 89, in __exit__\n    reraise(fserror, fserror(self._path, exc=exc_value), traceback)\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py", line 718, in reraise\n    raise value.with_traceback(tb)\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir\n    names = os.listdir(fsencode(sys_path))\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nfs.errors.ResourceNotFound: resource \'/TutorialEOPatch\' not found\n', origin='line 317 in /home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py.'))}, error_node_uid='LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d')
+2024-09-22 11:30:12,138 eolearn.core.eoworkflow DEBUG    EOWorkflow execution failed!
+</pre>
+                    </div>
+                
+            </div>
+        
+            <h3 id="execution3"> Execution 3 </h3>
+
+            <div class="indent">
+                Statistics<br/>
+                <ul>
+                    <li>Start time: 2024-09-22 11:30:12</li>
+                    <li>End time: 2024-09-22 11:30:12</li>
+                    <li>Duration: 0:00:00.002268</li>
+                </ul>
+                
+                    
+                    Error in task <a href="#LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d"> Load EOPatch (LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d)</a>:<br/>
+                    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">317</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="n">names</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">fsencode</span><span class="p">(</span><span class="n">sys_path</span><span class="p">))</span>
+<span class="w">            </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="gr">FileNotFoundError</span>: <span class="n">[Errno 2] No such file or directory: b&#39;/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch&#39;</span>
+
+<span class="gt">During handling of the above exception, another exception occurred:</span>
+
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py&quot;</span>, line <span class="m">271</span>, in <span class="n">_execute_task</span>
+<span class="w">    </span><span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="o">*</span><span class="n">task_args</span><span class="p">,</span> <span class="o">**</span><span class="n">task_kwargs</span><span class="p">)</span>
+<span class="w">           </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py&quot;</span>, line <span class="m">224</span>, in <span class="n">execute</span>
+<span class="w">    </span><span class="n">loaded_patch</span> <span class="o">=</span> <span class="n">EOPatch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+<span class="w">                   </span><span class="pm">^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py&quot;</span>, line <span class="m">682</span>, in <span class="n">load</span>
+<span class="w">    </span><span class="n">bbox</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">,</span> <span class="n">features_dict</span> <span class="o">=</span> <span class="n">load_eopatch_content</span><span class="p">(</span>
+<span class="w">                                      </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py&quot;</span>, line <span class="m">308</span>, in <span class="n">load_eopatch_content</span>
+<span class="w">    </span><span class="n">file_information</span> <span class="o">=</span> <span class="n">get_filesystem_data_info</span><span class="p">(</span><span class="n">filesystem</span><span class="p">,</span> <span class="n">patch_location</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
+<span class="w">                       </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py&quot;</span>, line <span class="m">416</span>, in <span class="n">get_filesystem_data_info</span>
+<span class="w">    </span><span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">filesystem</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">patch_location</span><span class="p">):</span>
+<span class="w">                </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">316</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="k">with</span> <span class="n">convert_os_errors</span><span class="p">(</span><span class="s2">&quot;listdir&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py&quot;</span>, line <span class="m">89</span>, in <span class="n">__exit__</span>
+<span class="w">    </span><span class="n">reraise</span><span class="p">(</span><span class="n">fserror</span><span class="p">,</span> <span class="n">fserror</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="n">exc_value</span><span class="p">),</span> <span class="n">traceback</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py&quot;</span>, line <span class="m">718</span>, in <span class="n">reraise</span>
+<span class="w">    </span><span class="k">raise</span> <span class="n">value</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">tb</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">317</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="n">names</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">fsencode</span><span class="p">(</span><span class="n">sys_path</span><span class="p">))</span>
+<span class="w">            </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="gr">fs.errors.ResourceNotFound</span>: <span class="n">resource &#39;/TutorialEOPatch&#39; not found</span>
+</pre></div></td></tr></table></div>
+
+                
+
+                
+                    <button class="collapsible">Logs</button>
+                    <div class="collapsible-content">
+                      <pre>2024-09-22 11:30:12,138 eolearn.core.eoworkflow DEBUG    Computing LoadTask(*[], **{'eopatch_folder': 'TutorialEOPatch'})
+2024-09-22 11:30:12,140 eolearn.core.eoworkflow ERROR    Task 'Load EOPatch' with id LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d failed with stack trace:
+Traceback (most recent call last):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir
+    names = os.listdir(fsencode(sys_path))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: b'/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py", line 271, in _execute_task
+    return task.execute(*task_args, **task_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py", line 224, in execute
+    loaded_patch = EOPatch.load(
+                   ^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py", line 682, in load
+    bbox, timestamps, features_dict = load_eopatch_content(
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 308, in load_eopatch_content
+    file_information = get_filesystem_data_info(filesystem, patch_location, features)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 416, in get_filesystem_data_info
+    for path in filesystem.listdir(patch_location):
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 316, in listdir
+    with convert_os_errors("listdir", path, directory=True):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py", line 89, in __exit__
+    reraise(fserror, fserror(self._path, exc=exc_value), traceback)
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py", line 718, in reraise
+    raise value.with_traceback(tb)
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir
+    names = os.listdir(fsencode(sys_path))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+fs.errors.ResourceNotFound: resource '/TutorialEOPatch' not found
+
+2024-09-22 11:30:12,140 eolearn.core.eoworkflow DEBUG    EOWorkflow ended with results WorkflowResults(outputs={}, start_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 137990), end_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 140258), stats={'LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d': NodeStats(node_uid='LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d', node_name='Load EOPatch', start_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 138184), end_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 140194), exception_info=ExceptionInfo(exception=ResourceNotFound("resource '/TutorialEOPatch' not found"), traceback='Traceback (most recent call last):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir\n    names = os.listdir(fsencode(sys_path))\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: b\'/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch\'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py", line 271, in _execute_task\n    return task.execute(*task_args, **task_kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py", line 224, in execute\n    loaded_patch = EOPatch.load(\n                   ^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py", line 682, in load\n    bbox, timestamps, features_dict = load_eopatch_content(\n                                      ^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 308, in load_eopatch_content\n    file_information = get_filesystem_data_info(filesystem, patch_location, features)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 416, in get_filesystem_data_info\n    for path in filesystem.listdir(patch_location):\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 316, in listdir\n    with convert_os_errors("listdir", path, directory=True):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py", line 89, in __exit__\n    reraise(fserror, fserror(self._path, exc=exc_value), traceback)\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py", line 718, in reraise\n    raise value.with_traceback(tb)\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir\n    names = os.listdir(fsencode(sys_path))\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nfs.errors.ResourceNotFound: resource \'/TutorialEOPatch\' not found\n', origin='line 317 in /home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py.'))}, error_node_uid='LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d')
+2024-09-22 11:30:12,140 eolearn.core.eoworkflow DEBUG    EOWorkflow execution failed!
+</pre>
+                    </div>
+                
+            </div>
+        
+            <h3 id="execution4"> Execution 4 </h3>
+
+            <div class="indent">
+                Statistics<br/>
+                <ul>
+                    <li>Start time: 2024-09-22 11:30:12</li>
+                    <li>End time: 2024-09-22 11:30:12</li>
+                    <li>Duration: 0:00:00.000743</li>
+                </ul>
+                
+                    
+                    Error in task <a href="#LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d"> Load EOPatch (LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d)</a>:<br/>
+                    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">317</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="n">names</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">fsencode</span><span class="p">(</span><span class="n">sys_path</span><span class="p">))</span>
+<span class="w">            </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="gr">FileNotFoundError</span>: <span class="n">[Errno 2] No such file or directory: b&#39;/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch&#39;</span>
+
+<span class="gt">During handling of the above exception, another exception occurred:</span>
+
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py&quot;</span>, line <span class="m">271</span>, in <span class="n">_execute_task</span>
+<span class="w">    </span><span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="o">*</span><span class="n">task_args</span><span class="p">,</span> <span class="o">**</span><span class="n">task_kwargs</span><span class="p">)</span>
+<span class="w">           </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py&quot;</span>, line <span class="m">224</span>, in <span class="n">execute</span>
+<span class="w">    </span><span class="n">loaded_patch</span> <span class="o">=</span> <span class="n">EOPatch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+<span class="w">                   </span><span class="pm">^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py&quot;</span>, line <span class="m">682</span>, in <span class="n">load</span>
+<span class="w">    </span><span class="n">bbox</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">,</span> <span class="n">features_dict</span> <span class="o">=</span> <span class="n">load_eopatch_content</span><span class="p">(</span>
+<span class="w">                                      </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py&quot;</span>, line <span class="m">308</span>, in <span class="n">load_eopatch_content</span>
+<span class="w">    </span><span class="n">file_information</span> <span class="o">=</span> <span class="n">get_filesystem_data_info</span><span class="p">(</span><span class="n">filesystem</span><span class="p">,</span> <span class="n">patch_location</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
+<span class="w">                       </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py&quot;</span>, line <span class="m">416</span>, in <span class="n">get_filesystem_data_info</span>
+<span class="w">    </span><span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">filesystem</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">patch_location</span><span class="p">):</span>
+<span class="w">                </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">316</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="k">with</span> <span class="n">convert_os_errors</span><span class="p">(</span><span class="s2">&quot;listdir&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py&quot;</span>, line <span class="m">89</span>, in <span class="n">__exit__</span>
+<span class="w">    </span><span class="n">reraise</span><span class="p">(</span><span class="n">fserror</span><span class="p">,</span> <span class="n">fserror</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="n">exc_value</span><span class="p">),</span> <span class="n">traceback</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py&quot;</span>, line <span class="m">718</span>, in <span class="n">reraise</span>
+<span class="w">    </span><span class="k">raise</span> <span class="n">value</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">tb</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">317</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="n">names</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">fsencode</span><span class="p">(</span><span class="n">sys_path</span><span class="p">))</span>
+<span class="w">            </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="gr">fs.errors.ResourceNotFound</span>: <span class="n">resource &#39;/TutorialEOPatch&#39; not found</span>
+</pre></div></td></tr></table></div>
+
+                
+
+                
+                    <button class="collapsible">Logs</button>
+                    <div class="collapsible-content">
+                      <pre>2024-09-22 11:30:12,139 eolearn.core.eoworkflow DEBUG    Computing LoadTask(*[], **{'eopatch_folder': 'TutorialEOPatch'})
+2024-09-22 11:30:12,140 eolearn.core.eoworkflow ERROR    Task 'Load EOPatch' with id LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d failed with stack trace:
+Traceback (most recent call last):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir
+    names = os.listdir(fsencode(sys_path))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: b'/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py", line 271, in _execute_task
+    return task.execute(*task_args, **task_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py", line 224, in execute
+    loaded_patch = EOPatch.load(
+                   ^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py", line 682, in load
+    bbox, timestamps, features_dict = load_eopatch_content(
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 308, in load_eopatch_content
+    file_information = get_filesystem_data_info(filesystem, patch_location, features)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 416, in get_filesystem_data_info
+    for path in filesystem.listdir(patch_location):
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 316, in listdir
+    with convert_os_errors("listdir", path, directory=True):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py", line 89, in __exit__
+    reraise(fserror, fserror(self._path, exc=exc_value), traceback)
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py", line 718, in reraise
+    raise value.with_traceback(tb)
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir
+    names = os.listdir(fsencode(sys_path))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+fs.errors.ResourceNotFound: resource '/TutorialEOPatch' not found
+
+2024-09-22 11:30:12,140 eolearn.core.eoworkflow DEBUG    EOWorkflow ended with results WorkflowResults(outputs={}, start_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 139376), end_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 140119), stats={'LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d': NodeStats(node_uid='LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d', node_name='Load EOPatch', start_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 139434), end_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 140060), exception_info=ExceptionInfo(exception=ResourceNotFound("resource '/TutorialEOPatch' not found"), traceback='Traceback (most recent call last):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir\n    names = os.listdir(fsencode(sys_path))\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: b\'/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch\'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py", line 271, in _execute_task\n    return task.execute(*task_args, **task_kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py", line 224, in execute\n    loaded_patch = EOPatch.load(\n                   ^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py", line 682, in load\n    bbox, timestamps, features_dict = load_eopatch_content(\n                                      ^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 308, in load_eopatch_content\n    file_information = get_filesystem_data_info(filesystem, patch_location, features)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 416, in get_filesystem_data_info\n    for path in filesystem.listdir(patch_location):\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 316, in listdir\n    with convert_os_errors("listdir", path, directory=True):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py", line 89, in __exit__\n    reraise(fserror, fserror(self._path, exc=exc_value), traceback)\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py", line 718, in reraise\n    raise value.with_traceback(tb)\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir\n    names = os.listdir(fsencode(sys_path))\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nfs.errors.ResourceNotFound: resource \'/TutorialEOPatch\' not found\n', origin='line 317 in /home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py.'))}, error_node_uid='LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d')
+2024-09-22 11:30:12,140 eolearn.core.eoworkflow DEBUG    EOWorkflow execution failed!
+</pre>
+                    </div>
+                
+            </div>
+        
+            <h3 id="execution5"> Execution 5 </h3>
+
+            <div class="indent">
+                Statistics<br/>
+                <ul>
+                    <li>Start time: 2024-09-22 11:30:12</li>
+                    <li>End time: 2024-09-22 11:30:12</li>
+                    <li>Duration: 0:00:00.000688</li>
+                </ul>
+                
+                    
+                    Error in task <a href="#LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d"> Load EOPatch (LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d)</a>:<br/>
+                    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">317</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="n">names</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">fsencode</span><span class="p">(</span><span class="n">sys_path</span><span class="p">))</span>
+<span class="w">            </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="gr">FileNotFoundError</span>: <span class="n">[Errno 2] No such file or directory: b&#39;/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch&#39;</span>
+
+<span class="gt">During handling of the above exception, another exception occurred:</span>
+
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py&quot;</span>, line <span class="m">271</span>, in <span class="n">_execute_task</span>
+<span class="w">    </span><span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="o">*</span><span class="n">task_args</span><span class="p">,</span> <span class="o">**</span><span class="n">task_kwargs</span><span class="p">)</span>
+<span class="w">           </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py&quot;</span>, line <span class="m">224</span>, in <span class="n">execute</span>
+<span class="w">    </span><span class="n">loaded_patch</span> <span class="o">=</span> <span class="n">EOPatch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+<span class="w">                   </span><span class="pm">^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py&quot;</span>, line <span class="m">682</span>, in <span class="n">load</span>
+<span class="w">    </span><span class="n">bbox</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">,</span> <span class="n">features_dict</span> <span class="o">=</span> <span class="n">load_eopatch_content</span><span class="p">(</span>
+<span class="w">                                      </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py&quot;</span>, line <span class="m">308</span>, in <span class="n">load_eopatch_content</span>
+<span class="w">    </span><span class="n">file_information</span> <span class="o">=</span> <span class="n">get_filesystem_data_info</span><span class="p">(</span><span class="n">filesystem</span><span class="p">,</span> <span class="n">patch_location</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
+<span class="w">                       </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py&quot;</span>, line <span class="m">416</span>, in <span class="n">get_filesystem_data_info</span>
+<span class="w">    </span><span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">filesystem</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">patch_location</span><span class="p">):</span>
+<span class="w">                </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">316</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="k">with</span> <span class="n">convert_os_errors</span><span class="p">(</span><span class="s2">&quot;listdir&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py&quot;</span>, line <span class="m">89</span>, in <span class="n">__exit__</span>
+<span class="w">    </span><span class="n">reraise</span><span class="p">(</span><span class="n">fserror</span><span class="p">,</span> <span class="n">fserror</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="n">exc_value</span><span class="p">),</span> <span class="n">traceback</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py&quot;</span>, line <span class="m">718</span>, in <span class="n">reraise</span>
+<span class="w">    </span><span class="k">raise</span> <span class="n">value</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">tb</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py&quot;</span>, line <span class="m">317</span>, in <span class="n">listdir</span>
+<span class="w">    </span><span class="n">names</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">fsencode</span><span class="p">(</span><span class="n">sys_path</span><span class="p">))</span>
+<span class="w">            </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class="gr">fs.errors.ResourceNotFound</span>: <span class="n">resource &#39;/TutorialEOPatch&#39; not found</span>
+</pre></div></td></tr></table></div>
+
+                
+
+                
+                    <button class="collapsible">Logs</button>
+                    <div class="collapsible-content">
+                      <pre>2024-09-22 11:30:12,139 eolearn.core.eoworkflow DEBUG    Computing LoadTask(*[], **{'eopatch_folder': 'TutorialEOPatch'})
+2024-09-22 11:30:12,139 eolearn.core.eoworkflow ERROR    Task 'Load EOPatch' with id LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d failed with stack trace:
+Traceback (most recent call last):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir
+    names = os.listdir(fsencode(sys_path))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: b'/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py", line 271, in _execute_task
+    return task.execute(*task_args, **task_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py", line 224, in execute
+    loaded_patch = EOPatch.load(
+                   ^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py", line 682, in load
+    bbox, timestamps, features_dict = load_eopatch_content(
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 308, in load_eopatch_content
+    file_information = get_filesystem_data_info(filesystem, patch_location, features)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 416, in get_filesystem_data_info
+    for path in filesystem.listdir(patch_location):
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 316, in listdir
+    with convert_os_errors("listdir", path, directory=True):
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py", line 89, in __exit__
+    reraise(fserror, fserror(self._path, exc=exc_value), traceback)
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py", line 718, in reraise
+    raise value.with_traceback(tb)
+  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir
+    names = os.listdir(fsencode(sys_path))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+fs.errors.ResourceNotFound: resource '/TutorialEOPatch' not found
+
+2024-09-22 11:30:12,139 eolearn.core.eoworkflow DEBUG    EOWorkflow ended with results WorkflowResults(outputs={}, start_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 139239), end_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 139927), stats={'LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d': NodeStats(node_uid='LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d', node_name='Load EOPatch', start_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 139301), end_time=datetime.datetime(2024, 9, 22, 11, 30, 12, 139849), exception_info=ExceptionInfo(exception=ResourceNotFound("resource '/TutorialEOPatch' not found"), traceback='Traceback (most recent call last):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir\n    names = os.listdir(fsencode(sys_path))\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: b\'/home/nicksson/Git/eo-learn/example_data/TutorialEOPatch\'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eoworkflow.py", line 271, in _execute_task\n    return task.execute(*task_args, **task_kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/core_tasks.py", line 224, in execute\n    loaded_patch = EOPatch.load(\n                   ^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata.py", line 682, in load\n    bbox, timestamps, features_dict = load_eopatch_content(\n                                      ^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 308, in load_eopatch_content\n    file_information = get_filesystem_data_info(filesystem, patch_location, features)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/eolearn/core/eodata_io.py", line 416, in get_filesystem_data_info\n    for path in filesystem.listdir(patch_location):\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 316, in listdir\n    with convert_os_errors("listdir", path, directory=True):\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/error_tools.py", line 89, in __exit__\n    reraise(fserror, fserror(self._path, exc=exc_value), traceback)\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/six.py", line 718, in reraise\n    raise value.with_traceback(tb)\n  File "/home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py", line 317, in listdir\n    names = os.listdir(fsencode(sys_path))\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nfs.errors.ResourceNotFound: resource \'/TutorialEOPatch\' not found\n', origin='line 317 in /home/nicksson/Git/agro-serasa/.venv/lib/python3.11/site-packages/fs/osfs.py.'))}, error_node_uid='LoadTask-9cdcd12178ee11ef9da6-ab59e4d8995d')
+2024-09-22 11:30:12,140 eolearn.core.eoworkflow DEBUG    EOWorkflow execution failed!
+</pre>
+                    </div>
+                
+            </div>
+        
+    </div>
+
+    <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+    </script>
+
+</body>
+</html>
