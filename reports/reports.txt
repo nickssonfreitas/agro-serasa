@@ -1,0 +1,2 @@
+├── reports            <- Generated analysis and visualizations
+│   └── figures        <- Generated graphics and figures

@@ -25,7 +25,7 @@ cd agro-serasa
 ```
 
 ### 2. Install System Dependencies
-Install the necessary system packages:
+- A) Install the necessary system packages on Linux/WSL:
 ```bash
 sudo apt-get update
 sudo apt-get install -y \
@@ -36,20 +36,30 @@ sudo apt-get install -y \
 ```
 
 ### 3. Install and Configure `pyenv`
-1. Install `pyenv`:
+- A. Install Pyten on Linux/SQL
+1. Install `pyenv` on Linux/WSL:
     ```bash
     curl https://pyenv.run | bash
     ```
 
 2. Add the following lines to your shell configuration file (`~/.bashrc`, `~/.zshrc`):
     ```bash
-    export PYENV_ROOT="$HOME/.pyenv"
-    [[ -d "$PYENV_ROOT/bin" ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-    if command -v pyenv-virtualenv-init > /dev/null; then
-      eval "$(pyenv virtualenv-init -)"
-    fi
+        # Configurações do Pyenv
+        export PYENV_ROOT="$HOME/.pyenv"
+        if [[ -d "$PYENV_ROOT/bin" ]]; then
+        export PATH="$PYENV_ROOT/bin:$PATH"
+        fi
+
+        # Inicialização do Pyenv
+        if command -v pyenv > /dev/null; then
+        eval "$(pyenv init --path)"
+        eval "$(pyenv init -)"
+        fi
+
+        # Inicialização do Pyenv Virtualenv, se disponível
+        if command -v pyenv-virtualenv-init > /dev/null; then
+        eval "$(pyenv virtualenv-init -)"
+        fi
     ```
 
 3. Apply the changes:
@@ -58,17 +68,24 @@ sudo apt-get install -y \
     ```
 
 ### 4. Install Python Versions and Create Virtual Environment
-1. Install Python versions:
+1. Install Python versions [GitPyEnv](https://github.com/pyenv/pyenv):
     ```bash
     pyenv install 3.9.12
     pyenv install 3.12.3
+    pyenv install 3.11.10
     ```
+
+2. Check Python versions via pyenv and define the local or global or temporariamente () version:
+    ```bash 
+    - pyenv versions
+    - pyenv shell 3.11.10
+
 
 2. Set up the virtual environment:
     ```bash
-    pyenv shell 3.9.12
-    python -m venv .venv3.9
-    source .venv3.9/bin/activate
+ 
+    python -m venv .venv
+    source .venv/bin/activate
     ```
 
 3. Install project dependencies:
@@ -79,9 +96,9 @@ sudo apt-get install -y \
 
 ### 5. Create a Development Branch
 ```bash
-git branch developer
-git checkout developer
-git pull origin developer
+git fetch origin && \
+git checkout -b develop origin/develop || \
+git checkout -b develop
 ```
 
 ### 6. Create a `.env` File
