@@ -1,0 +1,4 @@
+└── test               <- Unit tests
+    ├── unit/          <- Unit tests
+    ├── integration/   <- Integration tests
+    ├── __init__.py    <- Makes `test` a Python module
