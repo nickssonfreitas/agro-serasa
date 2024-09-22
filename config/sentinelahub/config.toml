@@ -1,0 +1,6 @@
+[default-profile]
+instance_id = "my-instance-id"
+max_download_attempts = 3
+
+[custom-profile]
+instance_id = "something-else"
