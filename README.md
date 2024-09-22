@@ -104,7 +104,10 @@ git checkout -b develop
 ### 6. Create a `.env` File
 Create a `.env` file in the project root with the following content:
 ```env
-PATH_TO_PROJECT=<YOUR_PATH_TO_PROJECT>
+PROJECT_PATH=<YOUR_PATH_TO_PROJECT>
+DATASETS_PATH=<YOUR_PATH_TO_DATASETS>
+SENTINEL_HUB_CLIENT_ID=<YOUR_PATH_TO_SENTINEL_HUB_CLIENT_ID>
+SENTINEL_HUB_CLIENT_SECRET=<YOUR_PATH_TO_SENTINEL_HUB_CLIENT_SECRET>
 ```
 
 ### 7. Clone the repository eo-learn to get data in other directory
