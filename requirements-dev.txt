@@ -1,15 +1,21 @@
-pandas              # Estruturas de dados e análise de dados fácil
-matplotlib          # Visualização de dados em gráficos
-seaborn             # Visualização estatística baseada no Matplotlib
-mplleaflet          # Visualização de mapas interativos
-plotly              # Biblioteca para criação de gráficos interativos
-ipywidgets          # Biblioteca para widgets interativos no Jupyter Notebook
-pyyaml              # Biblioteca Python para processamento de arquivos YAML
-dash                # Framework para construção de aplicações web analíticas interativas
-numpy               # Manipulação eficiente de arrays e cálculos numéricos
-scipy               # Biblioteca para matemática, ciência e engenharia
-rasterio
-shapely
-fiona
-eo-learn
-jupyterlab
+pandas              # Easy-to-use data structures and data analysis library
+matplotlib          # Data visualization library for creating static, animated, and interactive plots
+seaborn             # Statistical data visualization built on top of Matplotlib
+mplleaflet          # Interactive maps visualization tool using Leaflet and Matplotlib
+plotly              # Library for creating interactive and high-quality visualizations
+ipywidgets          # Library for interactive widgets in Jupyter Notebooks
+pyyaml              # Python library for processing YAML files
+dash                # Framework for building interactive web applications for data visualization
+numpy               # Library for efficient array manipulation and numerical computations
+scipy               # Library for mathematics, science, and engineering computations
+rasterio            # Library for reading and writing geospatial raster data
+shapely             # Library for manipulating and analyzing geometric objects in 2D
+fiona               # Library for reading and writing vector data in GIS formats
+eo-learn            # Library for processing and analyzing Earth observation (EO) data
+jupyterlab          # Next-generation interface for Jupyter Notebooks with enhanced features
+python-dotenv       # Tool to read environment variables from .env files
+joblib              # Library for lightweight pipelining and parallel processing in Python
+lightgbm            # Fast, distributed, high-performance gradient boosting framework for machine learning
+scikit-learn        # Machine learning library for data analysis and modeling, including classification and regression
+numba               # Just-in-time compiler for speeding up Python functions, especially in numerical computations
+sentinelhub
