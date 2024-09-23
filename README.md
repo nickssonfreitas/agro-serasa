@@ -62,36 +62,35 @@ fi
 ```
 
 3. Apply the changes:
-    ```bash
-    source ~/.bashrc
-    ```
+```bash
+source ~/.bashrc
+```
 
 ### 4. Install Python Versions and Create Virtual Environment
 1. Install Python versions [GitPyEnv](https://github.com/pyenv/pyenv):
-    ```bash
-    pyenv install 3.9.12
-    pyenv install 3.12.3
-    pyenv install 3.11.10
-    ```
+```bash
+pyenv install 3.9.12
+pyenv install 3.12.3
+pyenv install 3.11.10
+```
 
 2. Check Python versions via pyenv and define the local or global or temporariamente () version:
-    ```bash 
-    - pyenv versions
-    - pyenv shell 3.11.10
-
+```bash 
+pyenv versions
+pyenv shell 3.11.10
+```
 
 2. Set up the virtual environment:
-    ```bash
- 
-    python -m venv .venv
-    source .venv/bin/activate
-    ```
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
 
 3. Install project dependencies:
-    ```bash
-    pip install --upgrade pip
-    pip install -r requirements-dev.txt
-    ```
+```bash
+pip install --upgrade pip
+pip install -r requirements-dev.txt
+```
 
 ### 5. Create a Development Branch
 ```bash
@@ -112,16 +111,16 @@ SENTINEL_HUB_CLIENT_SECRET=<YOUR_PATH_TO_SENTINEL_HUB_CLIENT_SECRET>
 ### 7. Clone the repository eo-learn to get data in other directory
 The eoc-learn is a repository very big, then, I recomend you pull only the last commit using HTTPs
 ```bash
-- git clone --depth 1 https://github.com/sentinel-hub/eo-learn.git # get most recent commit (this repositoty is very big)
+git clone --depth 1 https://github.com/sentinel-hub/eo-learn.git # get most recent commit (this repositoty is very big)
 ```
 If you failed, then you can increase the HTTP buffet using the command below.
 ```bash
-- git config --global http.postBuffer 524288000 #increase buffet size HTTP to download
+git config --global http.postBuffer 524288000 #increase buffet size HTTP to download
 ```
 
 If you failed, then you can try uses git protocol.
 ```bash
-- git clone git://github.com/sentinel-hub/eo-learn.git
+git clone git://github.com/sentinel-hub/eo-learn.git
 ```
 
 ## Project Structure
@@ -170,9 +169,9 @@ If you failed, then you can try uses git protocol.
 
 ## Troubleshooting
 - **GDAL Installation Issues:** If GDAL fails to install, ensure the correct version is installed:
-    ```bash
-    gdalinfo --version
-    ```
+```bash
+gdalinfo --version
+```
 - **Python Version Conflicts:** Ensure the virtual environment is activated and the correct Python version is being used.
 - **pyenv Not Found:** Make sure `pyenv` is properly configured in your shell.
 
