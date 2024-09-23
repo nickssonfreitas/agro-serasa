@@ -11,7 +11,7 @@
 
 ## Prerequisites
 - **Git:** Ensure `git` is installed for cloning the repository.
-- **Python:** Python 3.9 or 3.12 (managed via `pyenv`).
+- **Python:** Python 3.11 (managed via `pyenv`).
 - **System Dependencies:** Required packages like `libgdal`, `libproj`, `gcc`, etc.
 - **pyenv:** For managing multiple Python versions.
 
