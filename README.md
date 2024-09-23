@@ -38,29 +38,28 @@ sudo apt-get install -y \
 ### 3. Install and Configure `pyenv`
 - A. Install Pyten on Linux/SQL
 1. Install `pyenv` on Linux/WSL:
-    ```bash
-    curl https://pyenv.run | bash
-    ```
+```bash
+curl https://pyenv.run | bash
+```
 
-2. Add the following lines to your shell configuration file (`~/.bashrc`, `~/.zshrc`):
-    ```bash
-        # Configurações do Pyenv
-        export PYENV_ROOT="$HOME/.pyenv"
-        if [[ -d "$PYENV_ROOT/bin" ]]; then
-        export PATH="$PYENV_ROOT/bin:$PATH"
-        fi
+```bash
+# Configurações do Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+if [[ -d "$PYENV_ROOT/bin" ]]; then
+export PATH="$PYENV_ROOT/bin:$PATH"
+fi
 
-        # Inicialização do Pyenv
-        if command -v pyenv > /dev/null; then
-        eval "$(pyenv init --path)"
-        eval "$(pyenv init -)"
-        fi
+# Inicialização do Pyenv
+if command -v pyenv > /dev/null; then
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+fi
 
-        # Inicialização do Pyenv Virtualenv, se disponível
-        if command -v pyenv-virtualenv-init > /dev/null; then
-        eval "$(pyenv virtualenv-init -)"
-        fi
-    ```
+# Inicialização do Pyenv Virtualenv, se disponível
+if command -v pyenv-virtualenv-init > /dev/null; then
+eval "$(pyenv virtualenv-init -)"
+fi
+```
 
 3. Apply the changes:
     ```bash
