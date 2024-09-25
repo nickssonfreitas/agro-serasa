@@ -25,7 +25,7 @@ cd agro-serasa
 ```
 
 ### 2. Install System Dependencies
-- A) Install the necessary system packages on Linux/WSL:
+A) Install the necessary system packages on Linux/WSL:
 ```bash
 sudo apt-get update
 sudo apt-get install -y \
@@ -36,8 +36,7 @@ sudo apt-get install -y \
 ```
 
 ### 3. Install and Configure `pyenv`
-- A. Install Pyten on Linux/SQL
-1. Install `pyenv` on Linux/WSL:
+A) Install Pyenv on Linux/SQL
 ```bash
 curl https://pyenv.run | bash
 ```
