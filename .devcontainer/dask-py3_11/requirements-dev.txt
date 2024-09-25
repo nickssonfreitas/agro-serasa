@@ -18,4 +18,20 @@ joblib              # Library for lightweight pipelining and parallel processing
 lightgbm            # Fast, distributed, high-performance gradient boosting framework for machine learning
 scikit-learn        # Machine learning library for data analysis and modeling, including classification and regression
 numba               # Just-in-time compiler for speeding up Python functions, especially in numerical computations
-sentinelhub
+sentinelhub         # Sentinel Hub services and utilities
+# dask                # Parallel computing library for larger-than-memory data processing
+# pyarrow             # High-performance library for Apache Arrow and Parquet file formats
+# sqlalchemy          # SQL toolkit for Python
+# nltk                # Natural Language Toolkit for text processing
+# spacy               # Advanced NLP processing
+# tensorflow          # Deep learning framework
+# torch               # PyTorch for deep learning
+# altair              # Declarative visualization library
+# bokeh               # Interactive visualization library
+# geopandas           # Data structures and tools for working with geospatial data
+# tsfresh             # Feature extraction for time series
+# statsmodels         # Statistical models and time series analysis
+# ray                 # Framework for building parallel and distributed applications
+# vaex               # Out-of-core DataFrames for large datasets
+# pytest              # Testing framework for Python
+# black               # Code formatting tool
