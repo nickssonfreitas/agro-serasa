@@ -1,0 +1,11 @@
+services:
+  dask-notebook:
+    build:
+      context: .  # Define o contexto como o diretório atual
+      dockerfile: Dockerfile  # Dockerfile no diretório atual
+    ports:
+      - "8888:8888"
+    volumes:
+      - /home/nicksson/Git:/workspace/Git
+    environment:
+      - NOTEBOOK_DIR=/workspace
