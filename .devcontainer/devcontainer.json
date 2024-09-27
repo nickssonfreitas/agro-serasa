@@ -1,0 +1,41 @@
+// For format details, see https://aka.ms/devcontainer.json
+{
+	"name": "Agrilearn",
+	"service": "agrilearn_dev",
+	
+    // Use a Dockerfile or Docker Compose file. 
+    // More info: https://containers.dev/guide/dockerfile
+    "dockerComposeFile": "docker-compose.yml",
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// 8888: Jupyterlab;
+	// 8787: Dask;
+	"forwardPorts": [8888, 8787],
+	
+	// The path of the workspace folder inside the container. This is typically the target path of 
+	// a volume mount in the docker-compose.yml
+    "workspaceFolder": "/agrilearn_app",
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "bash /agrilearn_app/agrilearn/.devcontainer/nicksson-freitas/post_create_commands.sh",
+	
+	// Host hardware requirements.
+	"hostRequirements": {"gpu":"optional"},
+
+    // More info: https://containers.dev/supporting#visual-studio-code
+    "customizations": {
+
+        // Configure properties specific to VS Code.
+		"vscode": {
+			"settings": {"terminal.integrated.shell.linux": "/bin/bash"},
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-toolsai.jupyter",
+				"MS-CEINTL.vscode-language-pack-pt-BR",
+				"DavidAnson.vscode-markdownlint",
+				"eamodio.gitlens"
+			]
+		}
+	}
+}
