@@ -24,81 +24,14 @@ git clone https://github.com/nickssonfreitas/agro-serasa
 cd agro-serasa
 ```
 
-### 2. Install System Dependencies
-A) Install the necessary system packages on Linux/WSL:
-```bash
-sudo apt-get update
-sudo apt-get install -y \
-    build-essential libbz2-dev libncurses5-dev libncursesw5-dev \
-    libreadline-dev libssl-dev libsqlite3-dev libffi-dev zlib1g-dev \
-    wget liblzma-dev tk-dev gcc libgdal-dev graphviz proj-bin \
-    libproj-dev libspatialindex-dev gdal-bin
-```
-
-### 3. Install and Configure `pyenv`
-A) Install Pyenv on Linux/SQL
-```bash
-curl https://pyenv.run | bash
-```
-
-```bash
-# Configurações do Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-if [[ -d "$PYENV_ROOT/bin" ]]; then
-export PATH="$PYENV_ROOT/bin:$PATH"
-fi
-
-# Inicialização do Pyenv
-if command -v pyenv > /dev/null; then
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-fi
-
-# Inicialização do Pyenv Virtualenv, se disponível
-if command -v pyenv-virtualenv-init > /dev/null; then
-eval "$(pyenv virtualenv-init -)"
-fi
-```
-
-3. Apply the changes:
-```bash
-source ~/.bashrc
-```
-
-### 4. Install Python Versions and Create Virtual Environment
-1. Install Python versions [GitPyEnv](https://github.com/pyenv/pyenv):
-```bash
-pyenv install 3.9.12
-pyenv install 3.12.3
-pyenv install 3.11.10
-```
-
-2. Check Python versions via pyenv and define the local or global or temporariamente () version:
-```bash 
-pyenv versions
-pyenv shell 3.11.10
-```
-
-2. Set up the virtual environment:
-```bash
-python -m venv .venv
-source .venv/bin/activate
-```
-
-3. Install project dependencies:
-```bash
-pip install --upgrade pip
-pip install -r requirements-dev.txt
-```
-
-### 5. Create a Development Branch
+### 2. Create a Development Branch
 ```bash
 git fetch origin && \
 git checkout -b develop origin/develop || \
 git checkout -b develop
 ```
 
-### 6. Create a `.env` File
+### 3. Create a `.env` File
 Create a `.env` file in the project root with the following content:
 ```env
 PROJECT_PATH=<YOUR_PATH_TO_PROJECT>
@@ -107,7 +40,7 @@ SENTINEL_HUB_CLIENT_ID=<YOUR_PATH_TO_SENTINEL_HUB_CLIENT_ID>
 SENTINEL_HUB_CLIENT_SECRET=<YOUR_PATH_TO_SENTINEL_HUB_CLIENT_SECRET>
 ```
 
-### 7. Clone the repository eo-learn to get data in other directory
+### 4. Clone the repository eo-learn to get data in other directory
 The eoc-learn is a repository very big, then, I recomend you pull only the last commit using HTTPs
 ```bash
 git clone --depth 1 https://github.com/sentinel-hub/eo-learn.git # get most recent commit (this repositoty is very big)
@@ -121,6 +54,9 @@ If you failed, then you can try uses git protocol.
 ```bash
 git clone git://github.com/sentinel-hub/eo-learn.git
 ```
+
+### 5. Create a venv python using install-venv.md
+
 
 ## Project Structure
 ```plaintext
