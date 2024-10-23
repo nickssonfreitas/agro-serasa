@@ -19,3 +19,4 @@ lightgbm            # Fast, distributed, high-performance gradient boosting fram
 scikit-learn        # Machine learning library for data analysis and modeling, including classification and regression
 numba               # Just-in-time compiler for speeding up Python functions, especially in numerical computations
 sentinelhub
+eo-learn[VISUALIZATION]
