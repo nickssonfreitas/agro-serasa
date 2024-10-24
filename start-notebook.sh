@@ -20,7 +20,14 @@ echo "JUPYTER_PORT: ${JUPYTER_PORT}"
 set -e
 set -x
 
-
+# Verifica se o ambiente virtual está ativado
+if [[ -z "$VIRTUAL_ENV" ]]; then
+    echo "Nenhum ambiente virtual está ativado."
+    echo "Ativando novo ambiente .venv: $VIRTUAL_ENV"
+    source .venv/bin/activate
+else
+    echo "O ambiente virtual há está ativado: $VIRTUAL_ENV"
+fi
 # --------------------------------------------
 # Definição das Configurações do Jupyter Lab
 # --------------------------------------------
