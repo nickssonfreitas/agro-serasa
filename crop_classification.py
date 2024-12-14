@@ -1,6 +1,6 @@
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense, BatchNormalization, concatenate, Reshape
-from tensorflow.keras.layers import LayerNormalization, MultiHeadAttention, GlobalAveragePooling1D, Dropout
+from tensorflow.keras.layers import LayerNormalization, MultiHeadAttention, GlobalAveragePooling1D, Dropout, LSTM, TimeDistributed
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau, CSVLogger, TensorBoard
 from sklearn.preprocessing import LabelEncoder
 import os
@@ -11,17 +11,17 @@ class CropClassificationModel:
     def __init__(self, input_shape, num_classes, model_type='cnn_hybrid', params=None):
         """
         Initialize the model.
-        :param input_shape: Tuple (H, W, C) representing the input image dimensions.
+        :param input_shape: Tuple (T, H, W, C) representing the input sequence dimensions.
         :param num_classes: Number of output classes.
-        :param model_type: 'cnn_hybrid' or 'cnn_transformer'.
+        :param model_type: 'cnn_hybrid', 'cnn_transformer', or 'rnn'.
         :param params: Dictionary of parameters for the model (e.g., number of filters, heads, etc.).
         """
-        if not isinstance(input_shape, tuple) or len(input_shape) != 3:
-            raise ValueError("input_shape must be a tuple (H, W, C).")
+        if not isinstance(input_shape, tuple) or len(input_shape) not in [3, 4]:
+            raise ValueError("input_shape must be a tuple (H, W, C) or (T, H, W, C).")
         if not isinstance(num_classes, int) or num_classes <= 0:
             raise ValueError("num_classes must be a positive integer.")
-        if model_type not in ['cnn_hybrid', 'cnn_transformer']:
-            raise ValueError("model_type must be 'cnn_hybrid' or 'cnn_transformer'.")
+        if model_type not in ['cnn_hybrid', 'cnn_transformer', 'rnn']:
+            raise ValueError("model_type must be 'cnn_hybrid', 'cnn_transformer', or 'rnn'.")
 
         self.input_shape = input_shape
         self.num_classes = num_classes
@@ -87,6 +87,27 @@ class CropClassificationModel:
 
         self.model = Model(inputs=input_layer, outputs=output_layer)
 
+    def _build_rnn(self):
+        """Build the RNN model for temporal sequence data."""
+        input_layer = Input(shape=self.input_shape)
+
+        # TimeDistributed CNN layers for feature extraction
+        cnn = TimeDistributed(Conv2D(64, (3, 3), activation='relu', padding='same'))(input_layer)
+        cnn = TimeDistributed(MaxPooling2D((2, 2)))(cnn)
+        cnn = TimeDistributed(Conv2D(128, (3, 3), activation='relu', padding='same'))(cnn)
+        cnn = TimeDistributed(MaxPooling2D((2, 2)))(cnn)
+        cnn = TimeDistributed(Flatten())(cnn)
+
+        # LSTM layer for temporal learning
+        lstm = LSTM(128, return_sequences=False, dropout=0.3, recurrent_dropout=0.3)(cnn)
+
+        # Fully connected layers
+        dense = Dense(128, activation='relu')(lstm)
+        dense = Dropout(0.3)(dense)
+        output_layer = Dense(self.num_classes, activation='softmax')(dense)
+
+        self.model = Model(inputs=input_layer, outputs=output_layer)
+
     def _build_model_rrn(self):
         """
         Build the model based on the selected type.
@@ -95,6 +116,8 @@ class CropClassificationModel:
             self._build_cnn_hybrid()
         elif self.model_type == 'cnn_transformer':
             self._build_cnn_transformer()
+        elif self.model_type == 'rnn':
+            self._build_rnn()
         else:
             raise ValueError(f"Unsupported model type: {self.model_type}")
 
