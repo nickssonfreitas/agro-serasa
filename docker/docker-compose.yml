@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  jupyter_lab_gpu:
+    # Nome do serviço ajustado para maior clareza
+    container_name: jupyter-lab-gpu
+    image: agrilearn/nicksson-gpu:v1.0.0 # Use um tag de versão significativo
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile-gpu
+      shm_size: "12gb" # Configuração de memória compartilhada para evitar problemas com grandes datasets
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility,graphics # Adicione 'graphics' se necessário
+      - AGRILEARN_ENV_PATH=/agrilearn_app/agrilearn/submodules/commons/.env
+    volumes:
+      # Volumes com comentários explicativos
+      - ${HOST_AGRILEARN}:/agrilearn_app/agrilearn:rw # Código-fonte do projeto
+      - ${HOST_DATASETS}:/agrilearn_app/datasets:rw # Datasets para treinamento
+      - ${HOST_NOTEBOOKS}:/agrilearn_app/notebooks:rw # Notebooks Jupyter
+      - ${HOST_SCRIPTS}:/agrilearn_app/scripts:rw # Scripts auxiliares
+      - ${HOST_OUTPUT}:/agrilearn_app/output:rw # Resultados do treinamento
+      - ~/.ssh/:/home/${USER_NAME}/.ssh/:rw # Chaves SSH para acesso remoto
+    ports:
+      - "8890:8890" # Porta para acessar o Jupyter Lab
+    user: "${USER_UID}:${USER_GID}" # Configura o contêiner para usar o mesmo USER_UID e USER_GID do host
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    command: /usr/local/bin/start_notebook.sh # Executa o script de inicialização
+
+  # jupyter_lab_cpu:
+  #   # Nome do serviço ajustado para maior clareza
+  #   container_name: jupyter-lab-cpu
+  #   image: agrilearn/nicksson-cpu:v1.0.0 # Use um tag de versão significativo
+  #   build:
+  #     context: ../
+  #     dockerfile: ./docker/Dockerfile-cpu
+  #     shm_size: "12gb" # Configuração de memória compartilhada para evitar problemas com grandes datasets
+  #   environment:
+  #     - AGRILEARN_ENV_PATH=/agrilearn_app/agrilearn/submodules/commons/.env
+  #   volumes:
+  #     # Volumes com comentários explicativos
+  #     - ${HOST_AGRILEARN}:/agrilearn_app/agrilearn:rw # Código-fonte do projeto
+  #     - ${HOST_DATASETS}:/agrilearn_app/datasets:rw # Datasets para treinamento
+  #     - ${HOST_NOTEBOOKS}:/agrilearn_app/notebooks:rw # Notebooks Jupyter
+  #     - ${HOST_SCRIPTS}:/agrilearn_app/scripts:rw # Scripts auxiliares
+  #     - ${HOST_EBS}:/agrilearn_app/ebs:rw # Armazenamento EBS
+  #     - ${HOST_OUTPUT}:/agrilearn_app/output:rw # Resultados do treinamento
+  #     - ~/.ssh/:/home/${USER_NAME}/.ssh/:rw # Chaves SSH para acesso remoto
+  #   ports:
+  #     - "8891:8891" # Porta para acessar o Jupyter Lab
+  #   user: "${USER_UID}:${USER_GID}" # Configura o contêiner para usar o mesmo USER_UID e USER_GID do host
+  #   command: /usr/local/bin/start_notebook.sh # Executa o script de inicialização
+ 
