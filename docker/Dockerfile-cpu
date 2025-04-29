@@ -1,0 +1,118 @@
+# STEP 01: Base image com suporte a CUDA e cuDNN para uso de GPU.
+# Usando uma imagem oficial da NVIDIA com suporte a CUDA 12.6 e cuDNN.
+FROM dockerhub.agribusiness-brain.us.experian.eeca/ubuntu:22.04
+
+# STEP 02: Informações sobre a imagem
+# Adicionando metadados para facilitar a identificação da imagem.
+LABEL name="agrilearn"
+LABEL description="Python packages developed by Alternative Data team."
+LABEL authors="Alternative Data Team"
+LABEL contributors="Nicksson Freitas" 
+LABEL email="<nicksson.freitas@br.experian.com>"
+
+# STEP 03: Configuração inicial
+# Definindo variáveis de ambiente para o contêiner.
+ARG USER_UID=1000
+ARG USER_GID=1000
+ENV USER_NAME=ec2-user
+ENV WORKDIR=/agrilearn_app
+ENV SHELL=/bin/bash
+ENV DEBIAN_FRONTEND=noninteractive \
+    PYTHONUNBUFFERED=1 \
+    UV_CACHE_DIR="/home/${USER_NAME}/.cache/uv" \
+    PATH="/home/${USER_NAME}/.local/bin:$PATH"
+
+# STEP 04: Instalação de pacotes básicos
+# Instalando apenas os pacotes necessários para reduzir o tamanho da imagem.
+RUN apt-get update --yes && \
+    # Ferramentas de desenvolvimento
+    apt-get install --yes --no-install-recommends \
+    gcc make build-essential patch sudo && \
+    # Ferramentas de sistema
+    apt-get install --yes --no-install-recommends \
+    vim curl wget unzip git htop tmux tree nano rsync jq && \
+    # Ferramentas de rede e segurança
+    apt-get install --yes --no-install-recommends \
+    openssh-client apt-transport-https apt-utils ca-certificates gnupg && \
+    # Bibliotecas Python e dependências
+    apt-get install --yes --no-install-recommends \
+    python3-pip python-is-python3 libgomp1 libgl1 libgdal-dev gdal-bin && \
+    # Outras bibliotecas e utilitários
+    apt-get install --yes --no-install-recommends \
+    graphviz libncurses5 libncursesw5 libtcmalloc-minimal4 locales zip && \
+    # Limpeza para reduzir o tamanho da imagem
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# STEP 05: Criação do usuário com sudo
+# Criando um usuário não root para maior segurança.
+RUN groupadd --gid $USER_GID $USER_NAME && \
+    useradd --uid $USER_UID --gid $USER_GID --create-home $USER_NAME && \
+    echo "%sudo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+    adduser $USER_NAME sudo && \
+    # Verificando se o usuário foi criado corretamente
+    id $USER_NAME && \
+    groups $USER_NAME
+
+# STEP 06: Instalação do utilitário uv
+# Copiando o binário do utilitário uv para o contêiner.
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+# Verificando se o binário foi copiado corretamente e se é executável.
+RUN if [ ! -x "/bin/uv" ]; then echo "Erro: O binário 'uv' não foi copiado corretamente ou não é executável."; exit 1; fi && \
+    if [ ! -x "/bin/uvx" ]; then echo "Erro: O binário 'uvx' não foi copiado corretamente ou não é executável."; exit 1; fi && \
+    echo "Binários 'uv' e 'uvx' copiados e verificados com sucesso."
+
+# STEP 07: Instalação da AWS CLI com verificação de integridade
+# Instalando a AWS CLI e verificando a integridade do download.
+RUN curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    echo "Verificando integridade do instalador da AWS CLI..." && \
+    unzip awscliv2.zip && ./aws/install && rm -rf awscliv2.zip aws/
+
+# STEP 08: Copiar o script start_notebook.sh para o contêiner e torná-lo executável
+# Copiando o script de inicialização e garantindo que ele seja executável.
+WORKDIR $WORKDIR
+COPY --chown=${USER_NAME}:${USER_NAME} docker/start_notebook.sh /usr/local/bin/start_notebook.sh
+RUN chmod +x /usr/local/bin/start_notebook.sh
+
+# STEP 09: Atualização do pip
+# Atualizando o pip para a versão mais recente.
+RUN pip install --upgrade pip --no-cache-dir
+
+# STEP 10: Instalação do Poetry
+# Instalando o Poetry para gerenciamento de dependências.
+RUN curl -sSL https://install.python-poetry.org | python3 - && \
+    echo "export PATH=$PATH:/home/${USER_NAME}/.local/bin" >> /home/$USER_NAME/.bashrc
+
+# STEP 11: Configuração de variáveis de ambiente para GDAL
+# Configurando variáveis de ambiente para bibliotecas GDAL.
+ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
+ENV C_INCLUDE_PATH=/usr/include/gdal 
+
+# STEP 12: Instalação de dependências do projeto
+# Copiando o código do projeto e instalando dependências.
+COPY --chown=${USER_NAME}:${USER_NAME} . $WORKDIR/agrilearn
+RUN make install --directory=/agrilearn_app/agrilearn && \
+    uv pip install --system -r $WORKDIR/agrilearn/docker/requirements-dev.txt --no-cache-dir
+
+# STEP 13: Instalação do Node.js
+# Instalando o Node.js para suporte a ferramentas baseadas em JavaScript.
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install --yes nodejs
+
+# STEP 14: Mudança para o usuário ec2-user
+# Alterando para o usuário não root.
+USER ${USER_NAME}
+
+# Remove annoying startup message.
+RUN touch ~/.sudo_as_admin_successful
+
+ENV SHELL=/bin/bash
+
+# STEP 15: Habilitação de cores no prompt do .bashrc.
+RUN sed -i 's/^#force_color_prompt=yes/force_color_prompt=yes/' /home/$USER_NAME/.bashrc
+
+# STEP 16: Ferramentas relacionadas ao apt com prompt.
+ARG DEBIAN_FRONTEND=dialog
+
+# Definindo o script de inicialização do contêiner.
+CMD ["start_notebook.sh"]
