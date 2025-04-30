@@ -1,0 +1,97 @@
+#!/bin/bash
+
+# Definição dos parâmetros diretamente no script
+export LANG=pt_BR.UTF-8
+export LC_ALL=pt_BR.UTF-8
+export TZ=America/Sao_Paulo
+export AWS_DEFAULT_REGION="us-east-1"
+
+LOG_PATH="/home/ec2-user/efs"
+CURRENT_DATETIME=$(date +"%Y%m%d_%H%M%S")
+
+log_file="${LOG_PATH}/sync_s3_to_ec2_${CURRENT_DATETIME}.log"
+error_log_file="${LOG_PATH}/sync_s3_to_ec2_errors_${CURRENT_DATETIME}.log"
+echo "Monitore o log com o comando: watch -n 1 tail -n 20 $log_file ----"
+
+# Verificar se os parâmetros foram fornecidos
+if [ $# -ne 3 ]; then
+    echo "Uso: $0 <BUCKET_PATH> <LOCAL_PATH> <STR_FILTER>"
+    exit 1
+fi
+
+BUCKET_PATH="$1"
+LOCAL_PATH="$2"
+STR_FILTER="$3"
+
+# Verificar se o BUCKET_PATH existe
+aws s3 ls "$BUCKET_PATH" > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo "Erro: O caminho do bucket S3 '$BUCKET_PATH' não existe ou não é acessível."
+    exit 1
+fi
+
+# Verificar se o LOCAL_PATH existe
+if [ ! -d "$LOCAL_PATH" ]; then
+    echo "Erro: O caminho local '$LOCAL_PATH' não existe."
+    exit 1
+fi
+
+# Função para contar diretórios no primeiro nível
+count_dirs() {
+    local path="$1"
+    local dir_count=$(find "$path" -maxdepth 1 -mindepth 1 -type d | wc -l)
+    echo "$dir_count"
+}
+
+# Função para sincronizar arquivos do S3 para o disco local
+sync_files() {
+    local s3_path="${BUCKET_PATH}"
+    local local_path="${LOCAL_PATH}"
+    local filter="${STR_FILTER}"
+
+    echo
+    echo "---- Copiando diretórios do $s3_path para o $local_path com filtro '$filter' ..." | tee -a "$log_file"
+    echo "... Monitore o log usando watch -n 1 tail -n 20 $log_file ----" | tee -a "$log_file"
+
+    if [ ! -d "$local_path" ]; then
+        echo "... Criando diretório local em $local_path" | tee -a "$log_file"
+        mkdir -p "$local_path"
+        if [ $? -ne 0 ]; then
+            echo "... Erro ao criar o diretório $local_path" | tee -a "$log_file"
+            exit 1
+        fi
+    fi
+
+    START_TIME=$(date +%s)
+
+    echo "... Iniciando a sincronização em $(date) ---- " | tee -a "$log_file"
+
+    # Listar e sincronizar apenas diretórios que contêm a palavra do filtro
+    sync_output=$(aws s3 ls "$s3_path" | grep "$filter" |  awk '{print $4}' | while read -r dir; do
+    aws s3 sync "${s3_path}${dir}" "${local_path}"
+    done 2>&1)
+    sync_exit_code=$?
+
+    if [ $sync_exit_code -eq 0 ]; then
+        echo "$sync_output" | tee -a "$log_file"
+        echo "... Sincronização concluída com sucesso em $(date) ---" | tee -a "$log_file"
+    else
+        echo "$sync_output" | tee -a "$log_file"
+        echo "$sync_output" >"$error_log_file"
+        echo "... Erro na sincronização em $(date)" | tee -a "$log_file"
+        echo "O arquivo do log de erros está em $error_log_file ----"
+    fi
+
+    END_TIME=$(date +%s)
+    EXECUTION_TIME=$(($END_TIME - $START_TIME))
+
+    HOURS=$(($EXECUTION_TIME / 3600))
+    MINUTES=$((($EXECUTION_TIME % 3600) / 60))
+    SECONDS=$(($EXECUTION_TIME % 60))
+
+    echo "... Tempo total de execução: $HOURS horas, $MINUTES minutos e $SECONDS segundos" | tee -a "$log_file"
+
+    echo "O arquivo do log está em $log_file ----"
+}
+
+sync_files
