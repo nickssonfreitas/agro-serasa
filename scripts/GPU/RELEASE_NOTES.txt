@@ -1,0 +1,60 @@
+RELEASE NOTES
+-------------
+
+Please refer to Nvidia GRID release notes for more details [1]
+
+- GRID 10.1
+
+  No AWS specific call out in this version.
+
+- GRID 10.0
+
+  No AWS specific call out in this version.
+
+- GRID 9.1
+
+  No AWS specific call out in this version.
+
+- GRID 9.0
+
+  No AWS specific call out in this version.
+
+- GRID 8.0
+
+  No AWS specific call out in this version.
+
+- GRID 7.2
+
+  No AWS specific call out in this version.
+
+- GRID 7.1
+
+  No AWS specific call out in this version.
+
+- GRID 7.0
+
+  No AWS specific call out in this version.
+
+- GRID 6.3
+
+  No AWS specific call out in this version.
+
+- GRID 6.2
+
+  As mentioned in the "Installing the NVIDIA Driver Manually" section from the
+  "Install Nvidia Driver" documentation [2], make sure to black list all other
+  graphical drivers, such as nouveau and reboot  your instance after
+  installing the Nvidia GRID driver.
+
+- GRID 6.1
+
+  The Nvidia GRID 6.1 driver (390.57) may show intermittent issues after
+  it is installed on CentOS 7.5 (kernel 3.10.0-862.2.3.el7.x86_64) and
+  RHEL 7.5 (kernel 3.10.0-862.2.3.el7.x86_64) for the first time.
+  This behaviour has only been observed on the g3.16xlarge instance size.
+  An instance reboot is recommended after installing the GRID driver in
+  order to prevent this issue from happening.
+
+
+[1] https://docs.nvidia.com/grid/index.html
+[2] https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-nvidia-driver.html
