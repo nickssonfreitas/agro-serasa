@@ -112,3 +112,10 @@ gdalinfo --version
 
 ## Additional Information
 For more details about contributing and advanced usage, see [CONTRIBUTING.md](CONTRIBUTING.md) and [docs](./docs).
+
+## Data
+The EOPatches under `data/eopatches/` and the generated EOPatches under `data/outputs/` (~9.6 GB)
+are not versioned in this repository. They were removed from the git history on 2026-09-30 to free
+the GitHub Git LFS quota. A full backup of the original repository, including every LFS object, is
+kept in the maintainer's Google Drive (`Backups GitHub - agro-serasa (2026-09-30)`); ask the
+maintainer for access, or regenerate the EOPatches with the notebooks in `notebooks/`.
